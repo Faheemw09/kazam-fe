@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "https://kazam-backend-8uil.onrender.com/api/:path*"
+      "destination": "/"
     }
   ],
   "headers": [
