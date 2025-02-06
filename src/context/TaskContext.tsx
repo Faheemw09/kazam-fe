@@ -80,7 +80,7 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
       console.log("Updating task with ID:", id, "to status:", status);
 
       const response = await axios.put(
-        `http://localhost:8080/api/tasks/${id}`,
+        `https://kazam-backend-1.onrender.com/api/tasks/${id}`,
         { status },
         {
           headers: {
