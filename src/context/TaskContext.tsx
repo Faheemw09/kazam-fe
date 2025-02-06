@@ -79,8 +79,8 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
     try {
       console.log("Updating task with ID:", id, "to status:", status);
 
-      const response = await axios.patch(
-        `https://kazam-backend-8uil.onrender.com/api/tasks/${id}`,
+      const response = await axios.put(
+        `http://localhost:8080/api/tasks/${id}`,
         { status },
         {
           headers: {
