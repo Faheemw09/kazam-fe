@@ -16,7 +16,7 @@ const Dashboard: React.FC = () => {
   const { tasks, createTask, updateTask, deleteTask, fetchTasks } =
     useTaskContext();
   const { logout, user, token } = useAuth();
-  console.log(token, tasks);
+  // console.log(token, tasks);
   useEffect(() => {
     fetchTasks();
   }, [fetchTasks]);

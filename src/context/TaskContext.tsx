@@ -24,14 +24,14 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
   const fetchTasks = async () => {
     try {
       const token = localStorage.getItem("token");
-      console.log(token);
+      //   console.log(token);
       const { data } = await axios.get(
         "https://kazam-backend-8uil.onrender.com/api/tasks/",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log(data);
+      //   console.log(data);
       setTasks(data);
     } catch (error) {
       console.error("Error fetching tasks:", error);
@@ -80,7 +80,7 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log("Task updated:", data);
+      //   console.log("Task updated:", data);
       fetchTasks();
     } catch (error) {
       console.error("Error updating task:", error);
