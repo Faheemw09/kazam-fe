@@ -78,6 +78,7 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
         { status },
         {
           headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
         }
       );
       //   console.log("Task updated:", data);
