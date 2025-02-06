@@ -70,10 +70,16 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
   };
 
   const updateTask = async (id: string, status: "pending" | "completed") => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.error("Token is missing");
+      return;
+    }
+
     try {
-      console.log("Selected Status:", status);
-      const token = localStorage.getItem("token");
-      const { data } = await axios.patch(
+      console.log("Updating task with ID:", id, "to status:", status);
+
+      const response = await axios.patch(
         `https://kazam-backend-8uil.onrender.com/api/tasks/${id}`,
         { status },
         {
@@ -81,10 +87,11 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
           withCredentials: true,
         }
       );
-      //   console.log("Task updated:", data);
+
+      console.log("Task updated successfully:", response.data);
       fetchTasks();
     } catch (error) {
-      console.error("Error updating task:", error);
+      console.error("Error updating task:", error.message);
     }
   };
 
