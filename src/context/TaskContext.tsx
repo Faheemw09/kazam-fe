@@ -87,13 +87,18 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
+          withCredentials: false,
         }
       );
 
       console.log("Task updated successfully:", response.data);
       fetchTasks();
     } catch (error) {
-      console.error("Error updating task:", error.message);
+      if (error.response) {
+        console.error("Error updating task:", error.response.data);
+      } else {
+        console.error("Error updating task:", error.message);
+      }
     }
   };
 
