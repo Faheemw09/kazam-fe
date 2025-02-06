@@ -1,13 +1,13 @@
 {
   "rewrites": [
     {
-      "source": "/api/:path*",
+      "source": "/(.*)",
       "destination": "https://kazam-backend-8uil.onrender.com/api/:path*"
     }
   ],
   "headers": [
     {
-      "source": "/api/:path*",
+      "source": "/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         {
