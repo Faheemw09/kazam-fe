@@ -83,8 +83,10 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
         `https://kazam-backend-8uil.onrender.com/api/tasks/${id}`,
         { status },
         {
-          headers: { Authorization: `Bearer ${token}` },
-          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         }
       );
 
